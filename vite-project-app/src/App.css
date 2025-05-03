@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url('/meals.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .app {
+    padding: 20px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 100vh;
+  }
+  
+  .meal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .meal-item {
+    background: #ffffff22;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .price {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .add-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .add-controls input {
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .add-controls button {
+    padding: 6px 12px;
+    background-color: #ffaa00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+  }
+  
+  .wishlist-btn {
+    padding: 10px 20px;
+    background-color: #ffaa00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+  }
+  
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .modal {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    color: black;
+    width: 300px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  .modal button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ffaa00;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+  }
+  
+  .cart-btn {
+    padding: 5px 10px;
+    background-color: #ffaa00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .cart-btn:hover {
+    background-color: #ff8800;
+  }
+  
