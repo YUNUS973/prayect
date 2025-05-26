@@ -1,112 +1,96 @@
 body {
-    margin: 0;
-    font-family: sans-serif;
-    background-image: url('/meals.jpg'); 
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  
-  .app {
-    padding: 20px;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
-    min-height: 100vh;
-  }
-  
-  .meal-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .meal-item {
-    background: #ffffff22;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .price {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .add-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .add-controls input {
-    width: 60px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-  }
-  
-  .add-controls button {
-    padding: 6px 12px;
-    background-color: #ffaa00;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #000;
-  }
-  
-  .wishlist-btn {
-    padding: 10px 20px;
-    background-color: #ffaa00;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #000;
-  }
-  
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-  }
-  
-  .modal {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    color: black;
-    width: 300px;
-    max-height: 70vh;
-    overflow-y: auto;
-  }
-  
-  .modal button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #ffaa00;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #000;
-  }
-  
-  .cart-btn {
-    padding: 5px 10px;
-    background-color: #ffaa00;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #000;
-  }
-  
-  .cart-btn:hover {
-    background-color: #ff8800;
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f4f7;
+}
+
+.app {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.app-header {
+  background: #1976d2;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.app-header button {
+  padding: 8px 16px;
+  background-color: white;
+  color: #1976d2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.task-list h2 {
+  margin-bottom: 10px;
+}
+
+.task-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.task-card h3 {
+  margin: 0;
+}
+
+.task-card p {
+  margin: 5px 0 10px;
+}
+
+.task-card button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.task-card .edit {
+  background-color: #2196f3;
+  color: white;
+}
+
+.task-card .delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.task-form {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.task-form button {
+  background-color: #1976d2;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

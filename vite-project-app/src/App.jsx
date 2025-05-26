@@ -1,100 +1,36 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Main from "./components/Main";
-import "./App.css";
+import React, { useState } from 'react';
+import TaskList from './components/TaskList';
+import AddTask from './components/AddTask';
+import EditTask from './components/EditTask';
+import './App.css';
 
-export default function App() {
-  const [cart, setCart] = useState([]);
-  const [amounts, setAmounts] = useState({});
-  const [showCart, setShowCart] = useState(false);
+function App() {
+  const [tasks, setTasks] = useState([]);
+  const [showAddTask, setShowAddTask] = useState(false);
 
-  const totalItems = cart.reduce((sum, item) => sum + item.amount, 0);
-  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
-
-  const increaseAmount = (id) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, amount: item.amount + 1 } : item
-      )
-    );
+  const addTask = (task) => {
+    setTasks([...tasks, { ...task, id: Date.now() }]);
+    setShowAddTask(false);
   };
 
-  const decreaseAmount = (id) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id && item.amount > 1
-          ? { ...item, amount: item.amount - 1 }
-          : item
-      )
-    );
+  const updateTask = (updatedTask) => {
+    setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
+  };
+
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id));
   };
 
   return (
     <div className="app">
-      <Header totalItems={totalItems} onCartClick={() => setShowCart(true)} />
-      <Main cart={cart} setCart={setCart} amounts={amounts} setAmounts={setAmounts} />
-      <Footer />
-
-      {showCart && (
-        <div className="modal-backdrop">
-          <div className="modal">
-            <h2>Your Cart</h2>
-            {cart.length === 0 ? (
-              <p>Your cart is empty.</p>
-            ) : (
-              <>
-                <ul>
-                  {cart.map((item) => (
-                    <li
-                      key={item.id}
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        marginBottom: "10px",
-                      }}
-                    >
-                      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                        <span>{item.name}</span>
-                        <button
-                          onClick={() => increaseAmount(item.id)}
-                          className="cart-btn"
-                        >
-                          +
-                        </button>
-                        <span>{item.amount}</span>
-                        <button
-                          onClick={() => decreaseAmount(item.id)}
-                          className="cart-btn"
-                        >
-                          -
-                        </button>
-                      </div>
-                      <div>${(item.price * item.amount).toFixed(2)}</div>
-                    </li>
-                  ))}
-                </ul>
-
-                <div
-                  style={{
-                    marginTop: "20px",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    textAlign: "right",
-                  }}
-                >
-                  Total: ${totalPrice.toFixed(2)}
-                </div>
-              </>
-            )}
-            <button onClick={() => setShowCart(false)} style={{ marginTop: "20px" }}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      <header className="app-header">
+        <h1>Task Manager</h1>
+        <button onClick={() => setShowAddTask(true)}>Add Task</button>
+      </header>
+      {showAddTask && <AddTask addTask={addTask} />}
+      <TaskList tasks={tasks} updateTask={updateTask} deleteTask={deleteTask} />
     </div>
   );
 }
 
+export default App;
